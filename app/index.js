@@ -1,6 +1,6 @@
 var USER_DATA = {
   name: 'Nikolay Ignatyev',
-  username: 'cyb3D',
+  username: 'cyb3rD',
   image: 'https://avatars3.githubusercontent.com/u/2452690?v=3&s=460'
 }
 
@@ -13,13 +13,36 @@ var ProfilePic = React.createClass({
   }
 });
 
+/* Each component must be:
+  Focused
+  Independent
+  Reusable
+  Small
+  Teastable
+*/
+
+var Link = React.createClass({
+  changeUrl: function() {
+      window.location.replace(this.props.href)
+  },
+
+  render: function() {
+    return (
+      <span style={{color: 'blue', cursor: 'pointer'}}
+      onClick={this.changeUrl}>
+        {this.props.children}
+      </span>
+    )
+  }
+});
+
 var ProfileLink = React.createClass({
   render: function() {
     return (
       <div>
-        <a href={'https://www.github.com/' + this.props.username}>
+        <Link href={'https://www.github.com/' + this.props.username}>
           {this.props.username}
-        </a>
+        </Link>
       </div>
     )
   }
