@@ -7,11 +7,8 @@ var USER_DATA = {
 var React =  require('react');
 var ReactDOM = require('react-dom');
 
-var ProfilePic = React.createClass({
-  render: function() {
-    return <img src={this.props.imageUrl} style={{height: 100, width: 100}} />
-  }
-});
+var routes = require('./config/routes');
+
 
 /* Each component must be:
   Focused
@@ -20,6 +17,12 @@ var ProfilePic = React.createClass({
   Small
   Teastable
 */
+
+var ProfilePic = React.createClass({
+  render: function() {
+    return <img src={this.props.imageUrl} style={{height: 100, width: 100}} />
+  }
+});
 
 var Link = React.createClass({
   changeUrl: function() {
@@ -70,7 +73,10 @@ var Avatar = React.createClass({
   }
 });
 
+
+
 ReactDOM.render(
-  <Avatar user={USER_DATA}/>,
+  // <Avatar user={USER_DATA}/>,
+  routes,
   document.getElementById('app')
 );
